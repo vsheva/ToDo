@@ -50,9 +50,7 @@ const render = function () {
         li.querySelector(".todo-remove").addEventListener('click', function () {
             li.remove();
             // удаляем созданный li
-            if (toDoData.length !== 0) {
                 localStorage.clear();
-            }
 
 
 
