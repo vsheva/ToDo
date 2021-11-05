@@ -42,18 +42,21 @@ const render = function () {
 
 
         li.querySelector(".todo-complete").addEventListener('click', function () {
-            item.completed = !item.completed;                                                           // присваиваем выполненному = невыполненное
+            item.completed = !item.completed;// присваиваем выполненному = невыполненное
             render();                                                                                   // перезапускаем
         })
 
 
         li.querySelector(".todo-remove").addEventListener('click', function () {
-            li.remove();                                                                                    // удаляем созданный li
-            localStorage.setItem("toDoData", JSON.stringify(toDoData));
+            li.remove();
+            // удаляем созданный li
+            if (toDoData.length !== 0) {
+                localStorage.clear();
+            }
 
-            //      localStorage.clear();
 
-        })
+
+        });
 
         if (toDoData.length >= 1) {
             localStorage.setItem("toDoData", JSON.stringify(toDoData));                            //конвертируем массив в JSON и сохраняем его локально
