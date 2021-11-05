@@ -25,7 +25,7 @@ const render = function () {
     todoCompleted.innerHTML = '';
     todoList.innerHTML = '';
 
-    toDoData.forEach(function (item) {                                                               //перебор
+    toDoData.forEach(function (item,i) {                                                               //перебор
         const li = document.createElement('li');                                             //создаем li
         li.classList.add("todo-item");                                                              // добавляем класс
         li.innerHTML = '<span class="text-todo">' + item.text + '</span>' +
@@ -50,16 +50,22 @@ const render = function () {
         li.querySelector(".todo-remove").addEventListener('click', function () {
             li.remove();
             // удаляем созданный li
+            toDoData.splice(i, 1);
+            render();
+            localStorage.setItem("toDoData", JSON.stringify(toDoData));
+            if (toDoData.length === 0) {
                 localStorage.clear();
-
-
+            }
 
         });
+
+
 
         if (toDoData.length >= 1) {
             localStorage.setItem("toDoData", JSON.stringify(toDoData));                            //конвертируем массив в JSON и сохраняем его локально
         }
     })
+
 }
 
 
