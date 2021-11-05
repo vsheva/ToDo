@@ -49,7 +49,7 @@ const render = function () {
 
         li.querySelector(".todo-remove").addEventListener('click', function () {
             li.remove();
-            // удаляем созданный li
+            //удаляем созданный li
             toDoData.splice(i, 1);
             render();
             localStorage.setItem("toDoData", JSON.stringify(toDoData));
@@ -65,6 +65,7 @@ const render = function () {
             localStorage.setItem("toDoData", JSON.stringify(toDoData));                            //конвертируем массив в JSON и сохраняем его локально
         }
     })
+
 
 }
 
@@ -120,6 +121,25 @@ render();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// li.querySelector(".todo-remove").addEventListener("click", function () {
+//     toDoData = toDoData.filter(function (index) {
+//         li.remove(item);
+//         return index !== item;
+//     });
+//     localStorage.setItem("toDoData", JSON.stringify(toDoData))
+// });
 
 
 
